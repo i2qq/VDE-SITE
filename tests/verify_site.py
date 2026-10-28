@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 """
 VDE-SITE Verification Test Suite
-Verifies static site integrity, CNAME routing, install script validity, and assets.
+Verifies static site integrity, Vercel configuration, install script validity, and assets.
 """
 
 import os
 import sys
+import json
 
 SITE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
-def test_cname():
-    cname_path = os.path.join(SITE_DIR, "CNAME")
-    assert os.path.exists(cname_path), "CNAME file missing!"
-    with open(cname_path, "r", encoding="utf-8") as f:
-        content = f.read().strip()
-    assert content == "vopple.uk", f"Expected 'vopple.uk', got '{content}'"
-    print("[OK] CNAME verified: vopple.uk")
+def test_vercel_config():
+    vercel_path = os.path.join(SITE_DIR, "vercel.json")
+    assert os.path.exists(vercel_path), "vercel.json file missing!"
+    with open(vercel_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    assert data.get("cleanUrls") is True, "cleanUrls not enabled!"
+    assert any(h.get("source") == "/install.sh" for h in data.get("headers", [])), "Missing header for /install.sh"
+    print("[OK] vercel.json verified and valid JSON")
 
 def test_install_script():
     install_path = os.path.join(SITE_DIR, "install.sh")
@@ -59,8 +61,8 @@ def test_html_and_assets():
     print(f"[OK] All {len(apps)} native apps documented in index.html")
 
 if __name__ == "__main__":
-    print("[1/3] Checking CNAME...")
-    test_cname()
+    print("[1/3] Checking vercel.json...")
+    test_vercel_config()
     print("[2/3] Checking install.sh...")
     test_install_script()
     print("[3/3] Checking HTML and Assets...")
