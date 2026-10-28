@@ -60,11 +60,27 @@ def test_html_and_assets():
         assert app in html, f"App {app} missing in index.html!"
     print(f"[OK] All {len(apps)} native apps documented in index.html")
 
+def test_cloudflare_config():
+    headers_path = os.path.join(SITE_DIR, "_headers")
+    redirects_path = os.path.join(SITE_DIR, "_redirects")
+    assert os.path.exists(headers_path), "_headers file missing!"
+    assert os.path.exists(redirects_path), "_redirects file missing!"
+    with open(headers_path, "r", encoding="utf-8") as f:
+        headers_content = f.read()
+    assert "/install.sh" in headers_content, "Missing /install.sh in _headers"
+    assert "Content-Type: text/plain" in headers_content, "Missing Content-Type header in _headers"
+    with open(redirects_path, "r", encoding="utf-8") as f:
+        redirects_content = f.read()
+    assert "/install" in redirects_content and "/install.sh" in redirects_content, "Missing /install rewrite in _redirects"
+    print("[OK] Cloudflare Pages _headers and _redirects verified")
+
 if __name__ == "__main__":
-    print("[1/3] Checking vercel.json...")
+    print("[1/4] Checking vercel.json...")
     test_vercel_config()
-    print("[2/3] Checking install.sh...")
+    print("[2/4] Checking Cloudflare Pages config...")
+    test_cloudflare_config()
+    print("[3/4] Checking install.sh...")
     test_install_script()
-    print("[3/3] Checking HTML and Assets...")
+    print("[4/4] Checking HTML and Assets...")
     test_html_and_assets()
     print("\n[SUCCESS] VDE-SITE static site verified 100% healthy.")

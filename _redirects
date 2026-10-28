@@ -1,0 +1,3 @@
+# Cloudflare Pages Redirects / Rewrites configuration
+# Rewrite /install to /install.sh with HTTP 200
+/install    /install.sh    200

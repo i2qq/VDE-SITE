@@ -1,61 +1,49 @@
-# VDE-SITE — Vercel Deployment & IONOS DNS Guide
+# VDE-SITE — Cloudflare Pages & Vercel Deployment Guide
 
-Deploying the official **Victorious Desktop Environment (VDE)** website and web installer to **Vercel** with custom domain **`vopple.uk`** or **`vde.vopple.uk`** on **IONOS**.
+Deploying the official **Victorious Desktop Environment (VDE)** website and web installer to **Cloudflare Pages** (or Vercel) with custom domain **`vopple.uk`** or **`vde.vopple.uk`**.
 
 ---
 
-## 🚀 1. Deploy Repository to Vercel
+## ⚡ Recommended: Deploy with Cloudflare Pages
+
+### 1. Connect Repository
+1. In the [Cloudflare Dashboard](https://dash.cloudflare.com/), go to **Workers & Pages** > **Create application** > **Pages** tab.
+2. Select **Connect to Git** and authorize your GitHub account (`i2qq`).
+3. Select the repository **`i2qq/VDE-SITE`** and click **Begin setup**.
+
+### 2. Configure Build & Output
+- **Project name**: `vde-site` (or `vde`)
+- **Production branch**: `main`
+- **Framework preset**: `None`
+- **Build command**: *(leave empty)*
+- **Build output directory**: `/` (or leave default root `.`)
+- Click **Save and Deploy**.
+
+Cloudflare Pages automatically processes `_headers` and `_redirects` included in this repository to serve `/install.sh` and `/install` as raw plain text with proper cache controls.
+
+### 3. Attach Custom Domain (`vde.vopple.uk` or `vopple.uk`)
+1. In your Cloudflare Pages project, click **Custom domains** tab > **Set up a custom domain**.
+2. Enter **`vde.vopple.uk`** (or `vopple.uk`).
+3. Since your domain is onboarded to Cloudflare, Cloudflare will automatically configure the DNS CNAME record with 1 click! No manual DNS record creation needed.
+
+---
+
+## 🚀 Alternative: Deploy to Vercel
 
 1. Log into your [Vercel Dashboard](https://vercel.com/dashboard).
-2. Click **Add New...** > **Project**.
-3. Import **`i2qq/VDE-SITE`**.
-4. Framework Preset: **Other** (Static HTML/CSS/JS).
-5. Root Directory: `./` (default).
-6. Click **Deploy**.
+2. Click **Add New...** > **Project** and import **`i2qq/VDE-SITE`**.
+3. Framework Preset: **Other** (Static HTML/CSS/JS), Root Directory: `./`.
+4. Click **Deploy**.
+
+### DNS Setup for Vercel
+- For `vde.vopple.uk`: Add CNAME record pointing `vde` to `cname.vercel-dns.com`.
+- For `vopple.uk`: Add A record pointing `@` to `76.76.21.21` and CNAME for `www` to `cname.vercel-dns.com`.
 
 ---
 
-## 🌐 2. Add Custom Domain in Vercel
+## ⚡ Verification & 1-Command Installer
 
-In your Vercel project, go to **Settings** > **Domains**:
-
-- **Option A (Subdomain `vde.vopple.uk`)**:
-  - Enter **`vde.vopple.uk`** and click **Add**.
-  - Target: `cname.vercel-dns.com`
-- **Option B (Apex `vopple.uk`)**:
-  - Enter **`vopple.uk`** and click **Add**.
-  - Vercel will prompt for `@` (A record) and `www` (CNAME).
-
----
-
-## 🛠️ 3. Configure DNS in IONOS
-
-From your IONOS dashboard (**Domains & SSL**):
-
-### For Subdomain `vde.vopple.uk`:
-1. Go to **vde.vopple.uk** (or `vopple.uk` > **DNS**).
-2. Click **Add record**:
-   - **Type**: `CNAME`
-   - **Host Name**: `vde`
-   - **Points to**: `cname.vercel-dns.com`
-   - **TTL**: `1 hour` &rarr; Click **Save**.
-
-### For Root Domain `vopple.uk`:
-1. Under **vopple.uk** > **DNS**, click **Add record**:
-   - **Type**: `A`
-   - **Host Name**: `@`
-   - **Points to**: `76.76.21.21`
-   - **TTL**: `1 hour` &rarr; Click **Save**.
-2. For `www`:
-   - **Type**: `CNAME`
-   - **Host Name**: `www`
-   - **Points to**: `cname.vercel-dns.com` &rarr; Click **Save**.
-
----
-
-## ⚡ 4. Verification & 1-Command Installer
-
-Once DNS resolves (typically 1–2 minutes):
+Once deployed:
 - **Live Website**:
   - `https://vde.vopple.uk` (or `https://vopple.uk`)
 - **Direct Web Installer**:
