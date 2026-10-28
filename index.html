@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VDE — Victorious Desktop Environment | vopple.uk</title>
+  <meta name="description" content="Lightweight, privacy-first Fluent Dark Mica desktop environment for Linux. Sub-500 MB idle RAM, native Wayland compositor, zero telemetry.">
+  <link rel="icon" type="image/png" href="assets/images/vde_logo.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-2"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <img src="assets/images/vde_logo.svg" alt="VDE Logo" class="brand-logo" onerror="this.src='assets/images/vde_logo.png'">
+        <span>VDE</span>
+        <span class="brand-tag">vopple.uk</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#apps">Applications</a></li>
+        <li><a href="#shortcuts">Keybindings</a></li>
+        <li><a href="#install">Install</a></li>
+      </ul>
+      <a href="https://github.com/i2qq/VDE" target="_blank" rel="noopener noreferrer" class="btn-github">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>Victorious Desktop Environment 2.0 • Zero Telemetry</span>
+      </div>
+      <h1 class="hero-title">The Fluent Dark Mica<br>Desktop for Linux.</h1>
+      <p class="hero-subtitle">
+        Sub-500 MB idle RAM. Direct Wayland compositor architecture. 
+        Zero telemetry. 12 native applications built with modern acrylic aesthetics.
+      </p>
+
+      <!-- Install Terminal Widget -->
+      <div class="install-container" id="install">
+        <div class="install-header">
+          <div class="install-tabs">
+            <button class="tab-btn active" id="tab-wget">wget</button>
+            <button class="tab-btn" id="tab-curl">curl</button>
+          </div>
+          <div class="domain-pill">vopple.uk/install.sh</div>
+        </div>
+        <div class="install-body">
+          <div class="cmd-line">
+            <span class="prompt">$</span><span id="cmd-text">wget -qO- https://vopple.uk/install.sh | sudo bash</span>
+          </div>
+          <button class="copy-btn" id="copy-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Preview Mockup -->
+      <div class="preview-window">
+        <div class="preview-bar">
+          <div class="preview-dot red"></div>
+          <div class="preview-dot yellow"></div>
+          <div class="preview-dot green"></div>
+          <div class="preview-title">VDE Standalone Wayland Shell — 8K Mica Desktop</div>
+        </div>
+        <img src="assets/images/hero-wallpaper.png" alt="VDE Desktop with Logo and Dark Mica Taskbar" class="preview-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- Core Pillars -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Performance & Privacy</div>
+        <h2 class="section-title">Engineered for uncompromising speed.</h2>
+        <p class="section-subtitle">Ditching bloated web-view runtimes and background daemon spam for bare-metal C and optimized GTK3 Wayland ergonomics.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">⚡</div>
+          <h3>Sub-500 MB Idle RAM</h3>
+          <p>Labwc wlroots compositor, native Waybar acrylic taskbar, and streamlined services run on just 380–450 MB RAM, leaving 90%+ system memory for your workflow.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🛡️</div>
+          <h3>Strict Zero Telemetry</h3>
+          <p>Enforced under Victorian Privacy License (VPL). Zero telemetry beacons, zero diagnostic pings, zero cloud analytics. Complete sovereignty over your operating system.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">✨</div>
+          <h3>Fluent Dark Mica</h3>
+          <p>High-contrast `#18181b` and `#09090b` palette with frosted acrylic layering, subtle borders, and 6 HD curated wallpapers with instant personalization.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">🖥️</div>
+          <h3>Direct DRM/KMS Hardware</h3>
+          <p>Runs as a genuine standalone display environment on Linux seat0 via PAM logind. Not a nested window or GNOME shell skin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 Native Applications -->
+  <section class="section" id="apps" style="background: rgba(18, 18, 22, 0.4);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Native Application Suite</div>
+        <h2 class="section-title">12 purposeful desktop apps out of the box.</h2>
+        <p class="section-subtitle">Consistent design language, full minimize/maximize window controls, and seamless Wayland keyboard integration.</p>
+      </div>
+
+      <div class="apps-grid">
+        <div class="app-card">
+          <img src="assets/icons/crossmanager.svg" alt="Crossmanager" class="app-icon-img" onerror="this.src='assets/icons/system-file-manager.svg'">
+          <div class="app-info">
+            <h4>Crossmanager</h4>
+            <p>Fluent 1-to-1 File Explorer with Quick Access, breadcrumbs, search bar, and full clipboard integration.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crossings.svg" alt="Crossings" class="app-icon-img" onerror="this.src='assets/icons/settings.svg'">
+          <div class="app-info">
+            <h4>Crossings</h4>
+            <p>System Hub & Personalization. Display resolution, WirePlumber sound, 6 HD wallpapers, and custom picture browser.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crosspad.svg" alt="Crosspad" class="app-icon-img" onerror="this.src='assets/icons/accessories-text-editor.svg'">
+          <div class="app-info">
+            <h4>Crosspad</h4>
+            <p>Acrylic tabbed text editor with word wrap, Ln/Col status indicators, character count, and quick search.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crossminal.svg" alt="Crossminal" class="app-icon-img" onerror="this.src='assets/icons/utilities-terminal.svg'">
+          <div class="app-info">
+            <h4>Crossminal</h4>
+            <p>Wayland acrylic terminal emulator with multi-tabs, zoom hotkeys, and direct shell invocation.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crossaint.svg" alt="Crossaint" class="app-icon-img" onerror="this.src='assets/icons/applications-graphics.svg'">
+          <div class="app-info">
+            <h4>Crossaint</h4>
+            <p>Creative canvas paint suite powered by Cairo vector graphics, brush size adjustments, shapes, and PNG export.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crosstos.svg" alt="Crosstos" class="app-icon-img" onerror="this.src='assets/icons/image-viewer.svg'">
+          <div class="app-info">
+            <h4>Crosstos</h4>
+            <p>High-DPI photo viewer with pan, zoom, 90° rotation, fit-to-window geometry, and folder slideshow traversal.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crossculator.svg" alt="Crossculator" class="app-icon-img" onerror="this.src='assets/icons/accessories-calculator.svg'">
+          <div class="app-info">
+            <h4>Crossculator</h4>
+            <p>Standard and scientific calculation engine with reciprocals, roots, powers, memory registers, and numpad support.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crosslock.svg" alt="Crosslock" class="app-icon-img" onerror="this.src='assets/icons/preferences-system-time.svg'">
+          <div class="app-info">
+            <h4>Crosslock</h4>
+            <p>Desktop clock, world time clocks (London, New York, Tokyo), stopwatch with lap timing, and countdown timer.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crossbin.svg" alt="Cross Bin" class="app-icon-img" onerror="this.src='assets/icons/user-trash.svg'">
+          <div class="app-info">
+            <h4>Cross Bin</h4>
+            <p>Recycle Bin manager inspecting `~/.local/share/Trash`, file size inspection, one-click restore, and safe wipe.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crossnarrator.svg" alt="Cross Narrator" class="app-icon-img" onerror="this.src='assets/icons/preferences-desktop-accessibility.svg'">
+          <div class="app-info">
+            <h4>Cross Narrator</h4>
+            <p>Accessibility text-to-speech reader with speed and pitch sliders, reading any clipboard text on demand.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crossnip.svg" alt="Crossnip" class="app-icon-img" onerror="this.src='assets/icons/applets-screenshooter.svg'">
+          <div class="app-info">
+            <h4>Crossnip</h4>
+            <p>Snipping tool with slurp+grim rectangle selection, delay countdown, clipboard copy, and direct Paint editing.</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <img src="assets/icons/crosslink.svg" alt="Crosslink" class="app-icon-img" onerror="this.src='assets/icons/preferences-system-network.svg'">
+          <div class="app-info">
+            <h4>Crosslink</h4>
+            <p>Local network phone integration dashboard compatible with KDE Connect protocol and clipboard synchronization.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keybindings Table -->
+  <section class="section" id="shortcuts">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Productivity</div>
+        <h2 class="section-title">Fluent Snapping & Keyboard Ergonomics</h2>
+        <p class="section-subtitle">Instinctive hotkeys designed for high-efficiency multitasking on wlroots.</p>
+      </div>
+
+      <div class="table-card">
+        <table class="shortcuts-table">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Shortcut</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Start Menu Launcher</td>
+              <td><kbd>Win</kbd> or <kbd>Win</kbd> + <kbd>Space</kbd></td>
+              <td>Toggle VDE acrylic application launcher</td>
+            </tr>
+            <tr>
+              <td>Terminal (Crossminal)</td>
+              <td><kbd>Win</kbd> + <kbd>Enter</kbd> / <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd></td>
+              <td>Launch Wayland acrylic terminal emulator</td>
+            </tr>
+            <tr>
+              <td>File Explorer (Crossmanager)</td>
+              <td><kbd>Win</kbd> + <kbd>E</kbd></td>
+              <td>Launch Fluent file manager</td>
+            </tr>
+            <tr>
+              <td>Settings Hub (Crossings)</td>
+              <td><kbd>Win</kbd> + <kbd>I</kbd></td>
+              <td>Open display, wallpapers, and audio control center</td>
+            </tr>
+            <tr>
+              <td>Snipping Tool (Crossnip)</td>
+              <td><kbd>PrintScreen</kbd> or <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></td>
+              <td>Capture interactive rectangular screen snippet</td>
+            </tr>
+            <tr>
+              <td>Snap Left / Right Half</td>
+              <td><kbd>Win</kbd> + <kbd>←</kbd> / <kbd>→</kbd></td>
+              <td>Dock current window to 50% left or right screen edge</td>
+            </tr>
+            <tr>
+              <td>Quadrant 4-Corner Snap</td>
+              <td><kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>Arrows</kbd></td>
+              <td>Dock window to any 25% quadrant corner</td>
+            </tr>
+            <tr>
+              <td>Maximize / Minimize</td>
+              <td><kbd>Win</kbd> + <kbd>↑</kbd> / <kbd>↓</kbd></td>
+              <td>Toggle full maximize or minimize window</td>
+            </tr>
+            <tr>
+              <td>Task Switcher</td>
+              <td><kbd>Alt</kbd> + <kbd>Tab</kbd></td>
+              <td>Cycle through active running windows</td>
+            </tr>
+            <tr>
+              <td>Close Window</td>
+              <td><kbd>Alt</kbd> + <kbd>F4</kbd> or <kbd>Win</kbd> + <kbd>Q</kbd></td>
+              <td>Gracefully terminate current application window</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-copy">
+          <p><strong>Victorious Desktop Environment (VDE)</strong> • Hosted on <a href="https://vopple.uk" style="color: #38bdf8; text-decoration: none;">vopple.uk</a></p>
+          <p style="margin-top: 4px; font-size: 0.8rem; color: #71717a;">Protected by Victorian Privacy License (VPL) • Strict Zero Telemetry Policy</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/i2qq/VDE" target="_blank" rel="noopener noreferrer">VDE Repository</a>
+          <a href="https://github.com/i2qq/VDE-SITE" target="_blank" rel="noopener noreferrer">VDE-SITE Repository</a>
+          <a href="https://vopple.uk/install.sh">Raw Installer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
