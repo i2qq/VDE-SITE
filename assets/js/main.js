@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const copyBtn = document.getElementById("copy-btn");
 
   const cmds = {
-    wget: "wget -qO- https://vopple.uk/install.sh | sudo bash",
-    curl: "curl -sSL https://vopple.uk/install.sh | sudo bash"
+    wget: "wget -qO- https://vde.vopple.uk/install.sh | sudo bash",
+    curl: "curl -sSL https://vde.vopple.uk/install.sh | sudo bash"
   };
 
   let activeMode = "wget";

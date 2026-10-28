@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # Victorious Desktop Environment (VDE) Web Installer
-# Official Domain: vopple.uk
+# Official Domain: vde.vopple.uk
 # Master Repository: https://github.com/i2qq/VDE
-# License: Victorian Privacy License (VPL) - Strict Zero Telemetry
+# License: Vopple Public License (VPL) v2.0 - https://vpl.vopple.uk
 # ==============================================================================
 
 set -e
@@ -12,7 +12,7 @@ INSTALL_URL="https://raw.githubusercontent.com/i2qq/VDE/main/install.sh"
 
 echo "=========================================================="
 echo " Fetching Victorious Desktop Environment (VDE)..."
-echo " Official Source: vopple.uk -> github.com/i2qq/VDE"
+echo " Official Source: vde.vopple.uk -> github.com/i2qq/VDE"
 echo "=========================================================="
 
 if command -v curl >/dev/null 2>&1; then
